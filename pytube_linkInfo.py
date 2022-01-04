@@ -18,7 +18,10 @@ for resolution in resolutionList:
 print("Now which resolution you want to download? ")
 print("Enter your resolution in number+p format eg. 360p")
 requestedResolution = input()
+if(str(requestedResolution)=='Exit'):
+    print("You Cancelled the download. Thank you for using this application")
 
-video = my_video.streams.filter(res = str(requestedResolution)).first()
-video.download()
-print("Your ",requestedResolution," quality Video is downloaded.")
+else:
+    video = my_video.streams.filter(res = str(requestedResolution)).first()
+    video.download()
+    print("Your ",requestedResolution," quality Video is downloaded.")
